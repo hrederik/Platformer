@@ -1,11 +1,11 @@
 ﻿using System;
+using CodeBase.Game.Hero.Animator;
 using UnityEngine;
 using Zenject;
 
-namespace CodeBase.Game.Player
+namespace CodeBase.Game.Hero.Health
 {
-    [AddComponentMenu("Gameplay/Hero")]
-    public class Mediator : MonoBehaviour
+    public class HeroHealth : MonoBehaviour, IHeroHealth
     {
         private IHeroAnimator _heroAnimator;
 

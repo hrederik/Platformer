@@ -1,4 +1,6 @@
-using CodeBase.Game.Player;
+using CodeBase.Game.Hero;
+using CodeBase.Game.Hero.Animator;
+using CodeBase.Game.Hero.Health;
 using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Spawn;
 using UnityEngine;
@@ -41,7 +43,7 @@ namespace CodeBase.Infrastructure.Installers
         private GameObject InstantiateAndBindHeroBase()
         {
             var heroBase = SpawnHeroBase();
-            Container.Bind<Mediator>().FromInstance(heroBase.GetComponent<Mediator>());
+            Container.Bind<IHeroHealth>().FromInstance(heroBase.GetComponent<HeroHealth>());
             Container.Bind<HeroMarker>().FromInstance(heroBase.GetComponent<HeroMarker>());
             
             return heroBase;

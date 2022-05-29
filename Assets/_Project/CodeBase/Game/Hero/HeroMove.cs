@@ -1,3 +1,4 @@
+using CodeBase.Game.Hero.Animator;
 using CodeBase.Game.Level.Platforms;
 using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Infrastructure.Services.Input;
@@ -5,7 +6,7 @@ using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
-namespace CodeBase.Game.Player
+namespace CodeBase.Game.Hero
 {
     public class HeroMove : MonoBehaviour
     {

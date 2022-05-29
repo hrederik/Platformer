@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace CodeBase.Game.Player
+namespace CodeBase.Game.Hero
 {
     [RequireComponent(typeof(Transform))]
     public class TargetFollowing : MonoBehaviour

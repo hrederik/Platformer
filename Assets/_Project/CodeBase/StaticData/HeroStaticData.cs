@@ -1,4 +1,4 @@
-﻿using CodeBase.Game.Player;
+﻿using CodeBase.Game.Hero;
 using UnityEngine;
 
 namespace CodeBase.StaticData

@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace CodeBase.Game.Player
+namespace CodeBase.Game.Hero
 {
     public class HeroSample : MonoBehaviour
     {
-        public Animator Animator;
+        public UnityEngine.Animator Animator;
     }
 }

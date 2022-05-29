@@ -1,5 +1,5 @@
-﻿using CodeBase.Game.Level;
-using CodeBase.Game.Player;
+﻿using CodeBase.Game.Hero.Health;
+using CodeBase.Game.Level;
 using UnityEngine;
 using Zenject;
 
@@ -7,25 +7,25 @@ namespace CodeBase.Game
 {
     public class GameState : MonoBehaviour
     {
-        [SerializeField] private Mediator _mediator;
         [SerializeField] private IngameInterface _ingameInterface;
         [SerializeField] private Treasure _treasure;
+        private IHeroHealth _heroHealth;
 
         [Inject]
-        public void Construct(Mediator mediator)
+        public void Construct(IHeroHealth heroHealth)
         {
-            _mediator = mediator;
+            _heroHealth = heroHealth;
         }
         
         private void OnEnable()
         {
-            _mediator.Died += Lose;
+            _heroHealth.Died += Lose;
             _treasure.Collected += Win;
         }
 
         private void OnDisable()
         {
-            _mediator.Died -= Lose;
+            _heroHealth.Died -= Lose;
             _treasure.Collected -= Win;
         }
 

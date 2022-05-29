@@ -1,10 +1,12 @@
-﻿namespace CodeBase.Game.Level.Traps
+﻿using CodeBase.Game.Hero.Health;
+
+namespace CodeBase.Game.Level.Traps
 {
     public class Trap : PlayerTrigger
     {
-        protected override void OnPlayerEnter(Player.Mediator mediator)
+        protected override void OnPlayerEnter(HeroHealth heroHealth)
         {
-            mediator.Kill();
+            heroHealth.Kill();
         }
     }
 }

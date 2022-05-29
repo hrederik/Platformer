@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CodeBase.Game.Hero.Health;
+using UnityEngine;
 
 namespace CodeBase.Game.Level
 {
@@ -6,14 +7,14 @@ namespace CodeBase.Game.Level
     {
         private void OnTriggerEnter(Collider collider)
         {
-            Player.Mediator mediator = collider.GetComponent<Player.Mediator>();
+            HeroHealth heroHealth = collider.GetComponent<HeroHealth>();
 
-            if (mediator)
+            if (heroHealth)
             {
-                OnPlayerEnter(mediator);
+                OnPlayerEnter(heroHealth);
             }
         }
 
-        protected abstract void OnPlayerEnter(Player.Mediator mediator);
+        protected abstract void OnPlayerEnter(HeroHealth heroHealth);
     }
 }

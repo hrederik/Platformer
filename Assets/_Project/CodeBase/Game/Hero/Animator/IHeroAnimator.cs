@@ -1,4 +1,4 @@
-namespace CodeBase.Game.Player
+namespace CodeBase.Game.Hero.Animator
 {
     public interface IHeroAnimator
     {

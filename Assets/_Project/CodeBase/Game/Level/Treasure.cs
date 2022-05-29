@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CodeBase.Game.Hero.Health;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace CodeBase.Game.Level
@@ -11,7 +12,7 @@ namespace CodeBase.Game.Level
 
         public event UnityAction Collected; 
 
-        protected override void OnPlayerEnter(Player.Mediator mediator)
+        protected override void OnPlayerEnter(HeroHealth heroHealth)
         {
             _animator.SetTrigger(Open);
             Collected?.Invoke();

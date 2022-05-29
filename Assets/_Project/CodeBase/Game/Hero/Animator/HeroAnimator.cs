@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace CodeBase.Game.Player
+namespace CodeBase.Game.Hero.Animator
 {
     public class HeroAnimator : MonoBehaviour, IHeroAnimator
     {
-        private static readonly int Moving = Animator.StringToHash("Moving");
-        private static readonly int Kill = Animator.StringToHash("Kill");
+        private static readonly int Moving = UnityEngine.Animator.StringToHash("Moving");
+        private static readonly int Kill = UnityEngine.Animator.StringToHash("Kill");
         
-        [SerializeField] private Animator _animator;
+        [SerializeField] private UnityEngine.Animator _animator;
 
         public void PlayMotion() => 
             _animator.SetBool(Moving, true);

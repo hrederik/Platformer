@@ -1,5 +1,4 @@
 ﻿using System;
-using CodeBase.Game.Player;
 using CodeBase.StaticData;
 using UnityEngine;
 

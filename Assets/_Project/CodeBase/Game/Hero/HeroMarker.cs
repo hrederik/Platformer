@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase.Game.Player
+namespace CodeBase.Game.Hero
 {
     public class HeroMarker : MonoBehaviour
     {
