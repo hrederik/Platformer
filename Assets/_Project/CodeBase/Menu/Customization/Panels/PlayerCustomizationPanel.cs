@@ -1,19 +1,26 @@
-﻿using CodeBase.Game.Player;
+﻿using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Menu.Customization.Items;
 using CodeBase.Menu.MainMenu;
 using CodeBase.StaticData;
 using UnityEngine;
+using Zenject;
 
 namespace CodeBase.Menu.Customization.Panels
 {
     public class PlayerCustomizationPanel : OpenablePanel
     {
-        [SerializeField] private HeroStaticData _heroStaticData;
         [SerializeField] private PlayerCustomizationItem[] _playerCustomizationItems;
         [SerializeField] private ItemScenePresenter _itemScenePresenterPrefab;
         [SerializeField] private RectTransform _container;
         private ItemScenePresenter[] _itemScenePresenters;
+        private IStaticDataService _staticDataService;
 
+        [Inject]
+        public void Construct(IStaticDataService staticDataService)
+        {
+            _staticDataService = staticDataService;
+        }
+        
         private void Start()
         {
             _itemScenePresenters = new ItemScenePresenter[_playerCustomizationItems.Length];
@@ -28,9 +35,9 @@ namespace CodeBase.Menu.Customization.Panels
             }
         }
 
-        public void Choose(HeroStaticData heroStaticData)
+        private void Choose(HeroStaticData heroStaticData)
         {
-            _heroStaticData = heroStaticData;
+            _staticDataService.HeroData = heroStaticData;
         }
     }
 }

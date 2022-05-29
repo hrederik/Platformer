@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CodeBase.Game.Player;
+using UnityEngine;
 
 namespace CodeBase.StaticData
 {
@@ -7,7 +8,6 @@ namespace CodeBase.StaticData
     public class HeroStaticData : ScriptableObject
     {
         public float Speed;
-        public Animator Animator;
-        public GameObject Prefab;
+        public HeroSample Prefab;
     }
 }

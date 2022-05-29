@@ -1,6 +1,7 @@
 ﻿using System;
-using CodeBase.StaticData;
+using CodeBase.Infrastructure.Services.HeroDataProvider;
 using UnityEngine;
+using Zenject;
 
 namespace CodeBase.Game.Player
 {
@@ -9,16 +10,24 @@ namespace CodeBase.Game.Player
     {
         [SerializeField] private Level.Level _level;
         [SerializeField] private HeroMove _heroMove;
-        private HeroAnimator _heroAnimator;
-        
+        [SerializeField] private HeroAnimator _heroAnimator;
+        private IStaticDataService _staticDataService;
+
         public event Action Died;
 
-        public void Initialize(HeroStaticData heroStaticData)
+        [Inject]
+        public void Construct(IStaticDataService staticDataService)
         {
-            Instantiate(heroStaticData.Prefab, transform);
+            _staticDataService = staticDataService;
+        }
 
-            _heroAnimator.Initialize(heroStaticData.Animator);
-            _heroMove.Initialize(heroStaticData.Speed, _level);
+        private void Start()
+        {
+            var data = _staticDataService.HeroData;
+            var instance = Instantiate(data.Prefab, transform);
+
+            _heroAnimator.Initialize(instance.Animator);
+            _heroMove.Initialize(data.Speed, _level);
         }
 
         public void Kill()

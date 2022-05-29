@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bab6a1e15f121418dbe2979975b30f, type: 3}
   m_Name: Zombie
   m_EditorClassIdentifier: 
-  Speed: 0
-  Animator: {fileID: 0}
-  Prefab: {fileID: 0}
+  Speed: 8
+  Animator: {fileID: 5012608912086443981, guid: c0736c162cea205479d3475c83b2850e, type: 3}
+  Prefab: {fileID: 5012608912077084139, guid: c0736c162cea205479d3475c83b2850e, type: 3}

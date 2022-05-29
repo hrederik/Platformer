@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bab6a1e15f121418dbe2979975b30f, type: 3}
   m_Name: Man
   m_EditorClassIdentifier: 
-  Speed: 0
-  Animator: {fileID: 0}
-  Prefab: {fileID: 0}
+  Speed: 8
+  Animator: {fileID: 1471469920464831327, guid: 999f73bff31211c488e2008bcf3723c5, type: 3}
+  Prefab: {fileID: 1471469920455487865, guid: 999f73bff31211c488e2008bcf3723c5, type: 3}

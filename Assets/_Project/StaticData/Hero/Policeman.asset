@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bab6a1e15f121418dbe2979975b30f, type: 3}
   m_Name: Policeman
   m_EditorClassIdentifier: 
-  Speed: 0
-  Animator: {fileID: 0}
-  Prefab: {fileID: 0}
+  Speed: 8
+  Animator: {fileID: 2538411223799464727, guid: 03e702f40b4354146b9a02190a83a225, type: 3}
+  Prefab: {fileID: 2538411223808995633, guid: 03e702f40b4354146b9a02190a83a225, type: 3}
