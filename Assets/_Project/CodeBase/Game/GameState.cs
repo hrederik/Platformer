@@ -1,5 +1,6 @@
 ﻿using CodeBase.Game.Hero.Health;
 using CodeBase.Game.Level;
+using CodeBase.Game.Level.Interactables;
 using UnityEngine;
 using Zenject;
 

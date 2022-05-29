@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fda024a713524a469ecb29ea119068b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trigger: {fileID: 8886210528385362667}
   _delay: 1
   _duration: 1
   _acceleration: 14
@@ -256,7 +257,7 @@ GameObject:
   - component: {fileID: 354013213969264474}
   - component: {fileID: 354013213969264473}
   - component: {fileID: 354013213969264479}
-  - component: {fileID: 354013213969264468}
+  - component: {fileID: 8886210528385362667}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -447,7 +448,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &354013213969264468
+--- !u!114 &8886210528385362667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -456,6 +457,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 354013213969264477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c8e8c90ca26a74ea7c75d79ba71d54, type: 3}
+  m_Script: {fileID: 11500000, guid: 204850b7467e04f43ae4859a579c725e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

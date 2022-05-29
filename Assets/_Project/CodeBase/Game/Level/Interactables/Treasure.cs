@@ -2,20 +2,22 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CodeBase.Game.Level
+namespace CodeBase.Game.Level.Interactables
 {
-    public class Treasure : PlayerTrigger
+    public class Treasure : Interactable
     {
         private static readonly int Open = Animator.StringToHash("Open");
         
         [SerializeField] private Animator _animator;
 
-        public event UnityAction Collected; 
+        public event UnityAction Collected;
 
-        protected override void OnPlayerEnter(HeroHealth heroHealth)
+        protected override void OnEntered(IHeroHealth heroHealth)
         {
             _animator.SetTrigger(Open);
             Collected?.Invoke();
         }
+
+        protected override void OnExited(IHeroHealth _) { }
     }
 }

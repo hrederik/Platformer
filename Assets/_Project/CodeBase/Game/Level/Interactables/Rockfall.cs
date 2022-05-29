@@ -1,9 +1,10 @@
-﻿using DG.Tweening;
+﻿using CodeBase.Game.Hero.Health;
+using DG.Tweening;
 using UnityEngine;
 
-namespace CodeBase.Game.Level.Traps
+namespace CodeBase.Game.Level.Interactables
 {
-    public class Rockfall : MonoBehaviour
+    public class Rockfall : Interactable
     {
         [SerializeField] private float _delay;
         [SerializeField] private float _duration;
@@ -15,7 +16,14 @@ namespace CodeBase.Game.Level.Traps
         [SerializeField] private Transform _rock;
         [SerializeField] private TrailRenderer _trailRenderer;
 
-        private void Start()
+        private void Start() => Animate();
+
+        protected override void OnEntered(IHeroHealth heroHealth) => 
+            heroHealth.Kill();
+
+        protected override void OnExited(IHeroHealth _) { }
+
+        private void Animate()
         {
             var sequence = DOTween.Sequence();
 

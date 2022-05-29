@@ -1,9 +1,10 @@
-﻿using DG.Tweening;
+﻿using CodeBase.Game.Hero.Health;
+using DG.Tweening;
 using UnityEngine;
 
-namespace CodeBase.Game.Level.Traps
+namespace CodeBase.Game.Level.Interactables
 {
-    public class Spikes : MonoBehaviour
+    public class Spikes : Interactable
     {
         [SerializeField] private float _showDelay = 2;
         [SerializeField] private float _showDuration = 1.0f;
@@ -18,7 +19,14 @@ namespace CodeBase.Game.Level.Traps
         [SerializeField] private float _hidPosition;
         [SerializeField] private Transform _spikes;
 
-        private void Start()
+        private void Start() => Animate();
+
+        protected override void OnEntered(IHeroHealth heroHealth) => 
+            heroHealth.Kill();
+
+        protected override void OnExited(IHeroHealth _) { }
+
+        private void Animate()
         {
             var sequence = DOTween.Sequence();
             sequence
