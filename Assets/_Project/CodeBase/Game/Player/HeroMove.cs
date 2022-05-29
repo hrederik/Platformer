@@ -8,14 +8,13 @@ namespace CodeBase.Game.Player
 {
     public class HeroMove : MonoBehaviour
     {
-        [SerializeField] private Player _player;
-        [SerializeField] private Level.Level _level;
-        
         [SerializeField] private HeroAnimator _heroAnimator;
         [SerializeField] private Ease _ease;
         private IInputService _inputService;
         private Transform _transform;
+        private Level.Level _level;
         private Tween _motion;
+        private float _speed;
 
         [Inject]
         public void Construct(IInputService inputService) => 
@@ -34,6 +33,12 @@ namespace CodeBase.Game.Player
         {
             _inputService.MovedForward -= OnMovedForward;
             _inputService.MovedBack -= OnMovedBack;
+        }
+
+        public void Initialize(float speed, Level.Level level)
+        {
+            _speed = speed;
+            _level = level;
         }
 
         private void OnMovedForward()
@@ -59,7 +64,7 @@ namespace CodeBase.Game.Player
 
         private void MoveToPlatform(Platform nextPlatform)
         {
-            var duration = Vector3.Distance(_transform.position, nextPlatform.TargetPosition) / _player.Speed;
+            var duration = Vector3.Distance(_transform.position, nextPlatform.TargetPosition) / _speed;
             _heroAnimator.PlayMotion();
             _motion = _transform
                 .DOMoveX(nextPlatform.TargetPosition.x, duration)

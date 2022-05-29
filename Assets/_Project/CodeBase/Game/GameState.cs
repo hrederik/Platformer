@@ -1,28 +1,31 @@
-﻿using UnityEngine;
+﻿using CodeBase.Game.Level;
+using UnityEngine;
 
 namespace CodeBase.Game
 {
     public class GameState : MonoBehaviour
     {
-        [SerializeField] private Player.Player _player;
+        [SerializeField] private Player.Mediator _mediator;
         [SerializeField] private HeroPreset _heroPreset;
         [SerializeField] private IngameInterface _ingameInterface;
+        [SerializeField] private Treasure _treasure;
 
-        private void OnEnable()
-        {
-            _player.Died += Lose;
-            _player.TreasureCollected += Win;
-        }
 
         private void Awake()
         {
-            _player.Initialize(_heroPreset.Prefab);
+            _mediator.Initialize(_heroPreset.Prefab);
+        }
+
+        private void OnEnable()
+        {
+            _mediator.Died += Lose;
+            _treasure.Collected += Win;
         }
 
         private void OnDisable()
         {
-            _player.Died -= Lose;
-            _player.TreasureCollected -= Win;
+            _mediator.Died -= Lose;
+            _treasure.Collected -= Win;
         }
 
         public void Win()

@@ -7,12 +7,10 @@ namespace CodeBase.Game.Player
         private static readonly int Moving = Animator.StringToHash("Moving");
         private static readonly int Kill = Animator.StringToHash("Kill");
         
-        [SerializeField] private Animator _animator;
+        private Animator _animator;
 
-        private void Start()
-        {
-            _animator = GetComponentInChildren<Animator>();
-        }
+        public void Initialize(Animator animator) => 
+            _animator = animator;
 
         public void PlayMotion() => 
             _animator.SetBool(Moving, true);

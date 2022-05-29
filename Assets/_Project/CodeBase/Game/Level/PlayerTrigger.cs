@@ -6,14 +6,14 @@ namespace CodeBase.Game.Level
     {
         private void OnTriggerEnter(Collider collider)
         {
-            Player.Player player = collider.GetComponent<Player.Player>();
+            Player.Mediator mediator = collider.GetComponent<Player.Mediator>();
 
-            if (player)
+            if (mediator)
             {
-                OnPlayerEnter(player);
+                OnPlayerEnter(mediator);
             }
         }
 
-        protected abstract void OnPlayerEnter(Player.Player player);
+        protected abstract void OnPlayerEnter(Player.Mediator mediator);
     }
 }

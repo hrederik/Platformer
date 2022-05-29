@@ -2,9 +2,9 @@
 {
     public class Trap : PlayerTrigger
     {
-        protected override void OnPlayerEnter(Player.Player player)
+        protected override void OnPlayerEnter(Player.Mediator mediator)
         {
-            player.Kill();
+            mediator.Kill();
         }
     }
 }

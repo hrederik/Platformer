@@ -389,6 +389,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c8650fa2310f7e42b26ed2fd27f7ed6, type: 3}
+--- !u!114 &352170554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9128194692542088555, guid: 545c1c790ce8e2c4e9a12cad284e185c, type: 3}
+  m_PrefabInstance: {fileID: 9128194693235637880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0daf288d0a8a94095bda924fc9e0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &437952553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,9 +1100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02590de659b98904294d91a56e979823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1433416172}
+  _hero: {fileID: 0}
   _heroPreset: {fileID: 11400000, guid: 56a769c55ae8d3840abd0635f49440a7, type: 2}
   _ingameInterface: {fileID: 1466993155}
+  _treasure: {fileID: 352170554}
 --- !u!4 &774108582
 Transform:
   m_ObjectHideFlags: 0
@@ -1594,8 +1606,8 @@ GameObject:
   - component: {fileID: 1433416174}
   - component: {fileID: 1433416175}
   - component: {fileID: 1433416173}
-  - component: {fileID: 1433416176}
   - component: {fileID: 1433416172}
+  - component: {fileID: 1433416176}
   - component: {fileID: 1433416177}
   m_Layer: 0
   m_Name: Player
@@ -1617,8 +1629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: {fileID: 2090652811}
-  _animator: {fileID: 0}
-  Speed: 0
+  _heroMove: {fileID: 1433416176}
 --- !u!136 &1433416173
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1675,10 +1686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28727a59d5a14cf4cb9fd1b230f92f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _level: {fileID: 2090652811}
   _heroAnimator: {fileID: 1433416177}
-  _ease: 0
+  _ease: 1
 --- !u!114 &1433416177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,7 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a48cb593f24fe40bece88340ed6af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!1 &1436893475
 GameObject:
   m_ObjectHideFlags: 0
