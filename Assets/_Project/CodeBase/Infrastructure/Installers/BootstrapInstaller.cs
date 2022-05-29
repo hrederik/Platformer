@@ -1,3 +1,4 @@
+using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Infrastructure.Services.Input;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace CodeBase.Infrastructure.Installers
         public override void InstallBindings()
         {
             BindInputService();
+            BindHeroStaticDataLoader();
             BindHeroDataProvider();
         }
 
@@ -20,6 +22,14 @@ namespace CodeBase.Infrastructure.Installers
             Container
                 .Bind<IInputService>()
                 .FromComponentInNewPrefab(_inputService)
+                .AsSingle();
+        }
+
+        private void BindHeroStaticDataLoader()
+        {
+            Container
+                .Bind<IHeroStaticDataLoader>()
+                .To<HeroStaticDataLoader>()
                 .AsSingle();
         }
 

@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39bab6a1e15f121418dbe2979975b30f, type: 3}
-  m_Name: Policeman
+  m_Name: Zombie
   m_EditorClassIdentifier: 
+  Name: Zombie
+  Sprite: {fileID: 21300000, guid: bcffbe80490900247b39257b3cf00390, type: 3}
   Speed: 8
-  Prefab: {fileID: 4049271047934359163, guid: 03e702f40b4354146b9a02190a83a225, type: 3}
+  Prefab: {fileID: 3911972500091966905, guid: c0736c162cea205479d3475c83b2850e, type: 3}

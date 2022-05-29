@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bab6a1e15f121418dbe2979975b30f, type: 3}
   m_Name: Man
   m_EditorClassIdentifier: 
+  Name: Man
+  Sprite: {fileID: 21300000, guid: 513a325da0540c84791b85e2653c6c9b, type: 3}
   Speed: 8
   Prefab: {fileID: 1034332857100641394, guid: 999f73bff31211c488e2008bcf3723c5, type: 3}

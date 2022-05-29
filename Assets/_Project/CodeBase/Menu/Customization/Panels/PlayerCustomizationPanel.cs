@@ -1,5 +1,5 @@
-﻿using CodeBase.Infrastructure.Services.HeroDataProvider;
-using CodeBase.Menu.Customization.Items;
+﻿using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Menu.MainMenu;
 using CodeBase.StaticData;
 using UnityEngine;
@@ -9,29 +9,34 @@ namespace CodeBase.Menu.Customization.Panels
 {
     public class PlayerCustomizationPanel : OpenablePanel
     {
-        [SerializeField] private PlayerCustomizationItem[] _playerCustomizationItems;
         [SerializeField] private ItemScenePresenter _itemScenePresenterPrefab;
         [SerializeField] private RectTransform _container;
         private ItemScenePresenter[] _itemScenePresenters;
         private IStaticDataService _staticDataService;
+        private IHeroStaticDataLoader _heroStaticDataLoader;
 
         [Inject]
-        public void Construct(IStaticDataService staticDataService)
+        public void Construct(IStaticDataService staticDataService, IHeroStaticDataLoader heroStaticDataLoader)
         {
             _staticDataService = staticDataService;
+            _heroStaticDataLoader = heroStaticDataLoader;
         }
         
         private void Start()
         {
-            _itemScenePresenters = new ItemScenePresenter[_playerCustomizationItems.Length];
+            var heroStaticData = _heroStaticDataLoader.LoadAll();
+            _itemScenePresenters = new ItemScenePresenter[heroStaticData.Length];
 
-            for (int i = 0; i < _playerCustomizationItems.Length; i++)
+            // TODO: Temp
+            _staticDataService.HeroData = heroStaticData[0];
+            
+            for (int i = 0; i < heroStaticData.Length; i++)
             {
                 int z = i;
 
                 _itemScenePresenters[i] = Instantiate(_itemScenePresenterPrefab, _container);
-                _itemScenePresenters[i].Initialize(_playerCustomizationItems[i]);
-                _itemScenePresenters[i].Choosen += () => Choose(_playerCustomizationItems[z].PlayerPrefab);
+                _itemScenePresenters[i].Initialize(heroStaticData[i].Name, heroStaticData[i].Sprite);
+                _itemScenePresenters[i].Chosen += () => Choose(heroStaticData[z]);
             }
         }
 
