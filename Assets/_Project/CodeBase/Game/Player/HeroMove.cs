@@ -1,4 +1,3 @@
-using CodeBase.Game.Level;
 using CodeBase.Game.Level.Platforms;
 using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Infrastructure.Services.Input;
@@ -10,10 +9,10 @@ namespace CodeBase.Game.Player
 {
     public class HeroMove : MonoBehaviour
     {
-        [SerializeField] private HeroAnimator _heroAnimator;
         [SerializeField] private Ease _ease;
         private IPlatformsIterator _platformsIterator;
         private IInputService _inputService;
+        private IHeroAnimator _heroAnimator;
         private Transform _transform;
         private Tween _motion;
         private float _speed;
@@ -22,11 +21,13 @@ namespace CodeBase.Game.Player
         public void Construct(
             IInputService inputService,
             IPlatformsIterator platformsIterator,
-            IStaticDataService staticDataService)
+            IStaticDataService staticDataService,
+            IHeroAnimator heroAnimator)
         {
             _inputService = inputService;
             _platformsIterator = platformsIterator;
             _speed = staticDataService.HeroData.Speed;
+            _heroAnimator = heroAnimator;
         }
 
         private void Awake() => 

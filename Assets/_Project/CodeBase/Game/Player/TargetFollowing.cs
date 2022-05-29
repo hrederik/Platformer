@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace CodeBase.Game.Player
 {
@@ -6,19 +7,26 @@ namespace CodeBase.Game.Player
     public class TargetFollowing : MonoBehaviour
     {
         [SerializeField] private float _speed;
-        [SerializeField] private Transform _target;
+        private HeroMarker _hero;
+        
         private Transform _transform;
         private float _offset;
 
+        [Inject]
+        public void Construct(HeroMarker heroMarker)
+        {
+            _hero = heroMarker;
+        }
+        
         private void Awake()
         {
             _transform = GetComponent<Transform>();
-            _offset = _transform.position.x - _target.position.x;
+            _offset = _transform.position.x - _hero.Position.x;
         }
 
         private void Update()
         {
-            Vector3 newPosition = new Vector3(_target.position.x + _offset, _transform.position.y, _transform.position.z);
+            Vector3 newPosition = new Vector3(_hero.Position.x + _offset, _transform.position.y, _transform.position.z);
             _transform.position = Vector3.MoveTowards(_transform.position, newPosition, _speed * Time.deltaTime);
         }
     }
