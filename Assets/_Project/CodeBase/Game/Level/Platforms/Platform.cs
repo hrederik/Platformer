@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CodeBase.Game.Level
+namespace CodeBase.Game.Level.Platforms
 {
     public class Platform : MonoBehaviour
     {

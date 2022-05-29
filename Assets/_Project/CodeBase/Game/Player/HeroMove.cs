@@ -1,4 +1,6 @@
 using CodeBase.Game.Level;
+using CodeBase.Game.Level.Platforms;
+using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Infrastructure.Services.Input;
 using DG.Tweening;
 using UnityEngine;
@@ -10,15 +12,22 @@ namespace CodeBase.Game.Player
     {
         [SerializeField] private HeroAnimator _heroAnimator;
         [SerializeField] private Ease _ease;
+        private IPlatformsIterator _platformsIterator;
         private IInputService _inputService;
         private Transform _transform;
-        private Level.Level _level;
         private Tween _motion;
         private float _speed;
 
         [Inject]
-        public void Construct(IInputService inputService) => 
+        public void Construct(
+            IInputService inputService,
+            IPlatformsIterator platformsIterator,
+            IStaticDataService staticDataService)
+        {
             _inputService = inputService;
+            _platformsIterator = platformsIterator;
+            _speed = staticDataService.HeroData.Speed;
+        }
 
         private void Awake() => 
             _transform = GetComponent<Transform>();
@@ -35,28 +44,22 @@ namespace CodeBase.Game.Player
             _inputService.MovedBack -= OnMovedBack;
         }
 
-        public void Initialize(float speed, Level.Level level)
-        {
-            _speed = speed;
-            _level = level;
-        }
-
         private void OnMovedForward()
         {
             LookForward();
-            if (!_level.HasNextPlatform) return;
+            if (!_platformsIterator.HasNextPlatform) return;
             
             StopMotion();
-            MoveToPlatform(_level.GetNextPlatform());
+            MoveToPlatform(_platformsIterator.GetNextPlatform());
         }
 
         private void OnMovedBack()
         {
             LookBack();
-            if (!_level.HasPreviousPlatform) return;
+            if (!_platformsIterator.HasPreviousPlatform) return;
             
             StopMotion();
-            MoveToPlatform(_level.GetPreviousPlatform());
+            MoveToPlatform(_platformsIterator.GetPreviousPlatform());
         }
 
         private void StopMotion() => 

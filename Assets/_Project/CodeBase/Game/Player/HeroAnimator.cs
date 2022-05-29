@@ -1,3 +1,4 @@
+using CodeBase.Infrastructure.Services.HeroDataProvider;
 using UnityEngine;
 
 namespace CodeBase.Game.Player

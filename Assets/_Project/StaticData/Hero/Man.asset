@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Man
   m_EditorClassIdentifier: 
   Speed: 8
-  Animator: {fileID: 1471469920464831327, guid: 999f73bff31211c488e2008bcf3723c5, type: 3}
-  Prefab: {fileID: 1471469920455487865, guid: 999f73bff31211c488e2008bcf3723c5, type: 3}
+  Prefab: {fileID: 1034332857100641394, guid: 999f73bff31211c488e2008bcf3723c5, type: 3}

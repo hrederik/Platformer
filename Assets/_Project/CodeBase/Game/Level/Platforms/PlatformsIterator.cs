@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace CodeBase.Game.Level
+namespace CodeBase.Game.Level.Platforms
 {
-    public class Level : MonoBehaviour
+    public class PlatformsIterator : MonoBehaviour, IPlatformsIterator
     {
         [SerializeField] private Platform[] _platforms;
         private int _index;

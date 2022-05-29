@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: 
   Speed: 8
-  Animator: {fileID: 5012608912086443981, guid: c0736c162cea205479d3475c83b2850e, type: 3}
-  Prefab: {fileID: 5012608912077084139, guid: c0736c162cea205479d3475c83b2850e, type: 3}
+  Prefab: {fileID: 3911972500091966905, guid: c0736c162cea205479d3475c83b2850e, type: 3}
