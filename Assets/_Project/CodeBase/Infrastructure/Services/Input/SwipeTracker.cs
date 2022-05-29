@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace CodeBase.Services.Input
+namespace CodeBase.Infrastructure.Services.Input
 {
     public class SwipeTracker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
