@@ -124,9 +124,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8371191450f8844b643e1eddc9ffe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5950901261236923446}
-  _showSpikesDelay: 2
-  _hideSpikesDelay: 0.5
+  _showDelay: 2
+  _showDuration: 1
+  _show: 25
+  _hideDelay: 0.5
+  _hideDuration: 0.5
+  _hide: 23
+  _showedPosition: 0.3
+  _hidPosition: -0.45
+  _spikes: {fileID: 5950901261236923447}
 --- !u!1 &5950901259300915756
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,8 +159,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950901259300915756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.48499975, z: 0}
-  m_LocalScale: {x: 0.07139768, y: 0.4664128, z: 0.07139768}
+  m_LocalPosition: {x: 0, y: 0.4596, z: 0}
+  m_LocalScale: {x: 0.07139768, y: 0.4806197, z: 0.07139768}
   m_Children: []
   m_Father: {fileID: 5950901261236923447}
   m_RootOrder: 0
@@ -234,8 +240,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950901259348083862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4459998, z: -0.3}
-  m_LocalScale: {x: 0.07139768, y: 0.4287277, z: 0.07139768}
+  m_LocalPosition: {x: 0, y: 0.4245, z: -0.3}
+  m_LocalScale: {x: 0.07139768, y: 0.44697154, z: 0.07139768}
   m_Children: []
   m_Father: {fileID: 5950901261236923447}
   m_RootOrder: 2
@@ -315,8 +321,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950901259564905298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2999999, y: 0.4459998, z: 0}
-  m_LocalScale: {x: 0.07139768, y: 0.4287277, z: 0.07139768}
+  m_LocalPosition: {x: 0.2999999, y: 0.4245, z: 0}
+  m_LocalScale: {x: 0.07139768, y: 0.44697154, z: 0.07139768}
   m_Children: []
   m_Father: {fileID: 5950901261236923447}
   m_RootOrder: 4
@@ -396,8 +402,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950901259935625240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2999999, y: 0.4459998, z: 0}
-  m_LocalScale: {x: 0.07139768, y: 0.4287277, z: 0.07139768}
+  m_LocalPosition: {x: -0.3, y: 0.4245, z: 0}
+  m_LocalScale: {x: 0.07139768, y: 0.44697154, z: 0.07139768}
   m_Children: []
   m_Father: {fileID: 5950901261236923447}
   m_RootOrder: 3
@@ -477,8 +483,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950901260075084581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.446, z: 0.3}
-  m_LocalScale: {x: 0.07139768, y: 0.4287277, z: 0.07139768}
+  m_LocalPosition: {x: 0, y: 0.4245, z: 0.3}
+  m_LocalScale: {x: 0.07139768, y: 0.44697154, z: 0.07139768}
   m_Children: []
   m_Father: {fileID: 5950901261236923447}
   m_RootOrder: 1
@@ -572,7 +578,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5950901261236923447}
   - component: {fileID: 5950901261236923445}
-  - component: {fileID: 5950901261236923446}
   - component: {fileID: 5950901261236923444}
   m_Layer: 0
   m_Name: Spikes
@@ -589,7 +594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950901261236923440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5950901259300915747}
@@ -613,25 +618,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.85893506, z: 1}
   m_Center: {x: 0, y: 0.44156775, z: 0}
---- !u!95 &5950901261236923446
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5950901261236923440}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 108ee3042bde89040b90bab23134ae88, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5950901261236923444
 MonoBehaviour:
   m_ObjectHideFlags: 0
