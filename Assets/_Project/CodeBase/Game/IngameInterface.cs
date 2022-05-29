@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CodeBase.Game
 {
@@ -22,7 +23,7 @@ namespace CodeBase.Game
 
         public void OpenMainMenu()
         {
-            IJunior.TypedScenes.Menu.Load();
+            SceneManager.LoadScene(SceneNames.Menu);
         }
     }
 }

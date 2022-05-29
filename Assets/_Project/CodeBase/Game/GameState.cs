@@ -1,17 +1,22 @@
-﻿using IJunior.TypedScenes;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CodeBase.Game
 {
-    public class GameState : MonoBehaviour, ISceneLoadHandler<GamePreset>
+    public class GameState : MonoBehaviour
     {
         [SerializeField] private Player.Player _player;
+        [SerializeField] private HeroPreset _heroPreset;
         [SerializeField] private IngameInterface _ingameInterface;
 
         private void OnEnable()
         {
             _player.Died += Lose;
             _player.TreasureCollected += Win;
+        }
+
+        private void Start()
+        {
+            _player.Initialize(_heroPreset.Prefab);
         }
 
         private void OnDisable()
@@ -28,11 +33,6 @@ namespace CodeBase.Game
         public void Lose()
         {
             _ingameInterface.ShowLosePanel();
-        }
-
-        public void OnSceneLoaded(GamePreset gamePreset)
-        {
-            _player.Initialize(gamePreset.PlayerPrefab);
         }
     }
 }

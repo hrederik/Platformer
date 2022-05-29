@@ -7,8 +7,7 @@ namespace CodeBase.Menu.Customization.Panels
 {
     public class PlayerCustomizationPanel : OpenablePanel
     {
-        [SerializeField] private SelectionPanel _selectionPanel;
-        [SerializeField] private GamePreset _gamePreset;
+        [SerializeField] private HeroPreset _heroPreset;
         [SerializeField] private PlayerCustomizationItem[] _playerCustomizationItems;
         [SerializeField] private ItemScenePresenter _itemScenePresenterPrefab;
         [SerializeField] private RectTransform _container;
@@ -30,7 +29,7 @@ namespace CodeBase.Menu.Customization.Panels
 
         public void Choose(PlayerPrefab playerPrefab)
         {
-            _gamePreset.SetPlayerPrefab(playerPrefab);
+            _heroPreset.Prefab = playerPrefab;
         }
     }
 }

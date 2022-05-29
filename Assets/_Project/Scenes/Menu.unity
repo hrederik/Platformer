@@ -378,58 +378,13 @@ RectTransform:
   - {fileID: 1332443241}
   - {fileID: 1314829558}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &155380140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 155380142}
-  - component: {fileID: 155380141}
-  m_Layer: 0
-  m_Name: GamePreset
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &155380141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155380140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39bab6a1e15f121418dbe2979975b30f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 2381680053542191563, guid: 999f73bff31211c488e2008bcf3723c5, type: 3}
---- !u!4 &155380142
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155380140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 512, y: 474, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &167848595
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,12 +812,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1332443243}
-        m_TargetAssemblyTypeName: SelectionPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: CodeBase.Menu.MainMenu.SelectionPanel, Assembly-CSharp
         m_MethodName: OpenCustomizationPanel
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1314829560}
-          m_ObjectArgumentAssemblyTypeName: OpenablePanel, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CodeBase.Menu.MainMenu.OpenablePanel,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -986,50 +942,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530007730}
   m_CullTransparentMesh: 0
---- !u!1 &532496100
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 532496102}
-  - component: {fileID: 532496101}
-  m_Layer: 0
-  m_Name: TypedProcessor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &532496101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532496100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b75bc3aeafff29d4294a27937966d3bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &532496102
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532496100}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611837896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,12 +1111,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1314829560}
-        m_TargetAssemblyTypeName: OpenablePanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: CodeBase.Menu.MainMenu.OpenablePanel, Assembly-CSharp
         m_MethodName: OnCloseButtonClick
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1332443243}
-          m_ObjectArgumentAssemblyTypeName: OpenablePanel, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CodeBase.Menu.MainMenu.OpenablePanel,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1493,12 +1406,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1332443243}
-        m_TargetAssemblyTypeName: OpenablePanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: CodeBase.Menu.MainMenu.OpenablePanel, Assembly-CSharp
         m_MethodName: OnCloseButtonClick
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1917788278}
-          m_ObjectArgumentAssemblyTypeName: OpenablePanel, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CodeBase.Menu.MainMenu.OpenablePanel,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1749,8 +1663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1314829559}
-  _selectionPanel: {fileID: 0}
-  _gamePreset: {fileID: 155380141}
+  _heroPreset: {fileID: 11400000, guid: 56a769c55ae8d3840abd0635f49440a7, type: 2}
   _playerCustomizationItems:
   - _name: Man
     _preview: {fileID: 21300000, guid: 513a325da0540c84791b85e2653c6c9b, type: 3}
@@ -1998,7 +1911,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722182899
 GameObject:
@@ -2561,7 +2474,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1917788281}
-  _gamePreset: {fileID: 155380141}
   _selectionPanel: {fileID: 1332443243}
 --- !u!222 &1917788280
 CanvasRenderer:

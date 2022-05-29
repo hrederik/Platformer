@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CodeBase.Menu.MainMenu
 {
     public class MainMenuPanel : OpenablePanel
     {
-        [SerializeField] private GamePreset _gamePreset;
         [SerializeField] private SelectionPanel _selectionPanel;
 
         public void OnPlayButtonClick()
         {
-            IJunior.TypedScenes.Game.Load(_gamePreset);
+            SceneManager.LoadScene(SceneNames.Game);
         }
 
         public void OnCustomizationButtonClick()
