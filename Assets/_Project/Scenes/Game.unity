@@ -1094,7 +1094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ingameInterface: {fileID: 1466993155}
-  _treasure: {fileID: 9128194693235637881}
 --- !u!4 &774108582
 Transform:
   m_ObjectHideFlags: 0
@@ -2207,6 +2206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090652810}
   - component: {fileID: 2090652811}
+  - component: {fileID: 2090652812}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -2261,6 +2261,19 @@ MonoBehaviour:
   - {fileID: 1308845115}
   - {fileID: 1525294313}
   - {fileID: 9223084874366700232}
+--- !u!114 &2090652812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090652809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf8edb51c95425fa6cb7eb8675317c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treasure: {fileID: 9128194693235637881}
 --- !u!4 &2125591869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 354013212551774852, guid: 072658848a4bbd947ba25dc6d68d0dad, type: 3}
@@ -2307,6 +2320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _platformsIterator: {fileID: 2090652811}
+  _levelFinish: {fileID: 2090652812}
 --- !u!4 &2145530927
 Transform:
   m_ObjectHideFlags: 0
