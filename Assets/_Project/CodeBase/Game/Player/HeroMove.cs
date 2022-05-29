@@ -1,4 +1,6 @@
+using CodeBase.Game.Level;
 using CodeBase.Infrastructure.Services.Input;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -7,24 +9,68 @@ namespace CodeBase.Game.Player
     public class HeroMove : MonoBehaviour
     {
         [SerializeField] private Player _player;
+        [SerializeField] private Level.Level _level;
+        
+        [SerializeField] private HeroAnimator _heroAnimator;
+        [SerializeField] private Ease _ease;
         private IInputService _inputService;
+        private Transform _transform;
+        private Tween _motion;
 
         [Inject]
-        public void Construct(IInputService inputService)
-        {
+        public void Construct(IInputService inputService) => 
             _inputService = inputService;
-        }
+
+        private void Awake() => 
+            _transform = GetComponent<Transform>();
 
         private void OnEnable()
         {
-            _inputService.MovedForward += _player.MoveRight;
-            _inputService.MovedBack += _player.MoveLeft;
+            _inputService.MovedForward += OnMovedForward;
+            _inputService.MovedBack += OnMovedBack;
         }
 
         private void OnDisable()
         {
-            _inputService.MovedForward -= _player.MoveRight;
-            _inputService.MovedBack -= _player.MoveLeft;
+            _inputService.MovedForward -= OnMovedForward;
+            _inputService.MovedBack -= OnMovedBack;
         }
+
+        private void OnMovedForward()
+        {
+            LookForward();
+            if (!_level.HasNextPlatform) return;
+            
+            StopMotion();
+            MoveToPlatform(_level.GetNextPlatform());
+        }
+
+        private void OnMovedBack()
+        {
+            LookBack();
+            if (!_level.HasPreviousPlatform) return;
+            
+            StopMotion();
+            MoveToPlatform(_level.GetPreviousPlatform());
+        }
+
+        private void StopMotion() => 
+            _motion.Kill();
+
+        private void MoveToPlatform(Platform nextPlatform)
+        {
+            var duration = Vector3.Distance(_transform.position, nextPlatform.TargetPosition) / _player.Speed;
+            _heroAnimator.PlayMotion();
+            _motion = _transform
+                .DOMoveX(nextPlatform.TargetPosition.x, duration)
+                .SetEase(_ease)
+                .OnComplete(_heroAnimator.PlayIdle);
+        }
+
+        private void LookForward() => 
+            _transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        private void LookBack() => 
+            _transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
     }
 }

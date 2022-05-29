@@ -1596,6 +1596,7 @@ GameObject:
   - component: {fileID: 1433416173}
   - component: {fileID: 1433416176}
   - component: {fileID: 1433416172}
+  - component: {fileID: 1433416177}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1617,6 +1618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: {fileID: 2090652811}
   _animator: {fileID: 0}
+  Speed: 0
 --- !u!136 &1433416173
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1673,7 +1675,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28727a59d5a14cf4cb9fd1b230f92f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1433416172}
+  _player: {fileID: 0}
+  _level: {fileID: 2090652811}
+  _heroAnimator: {fileID: 1433416177}
+  _ease: 0
+--- !u!114 &1433416177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433416171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a48cb593f24fe40bece88340ed6af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
 --- !u!1 &1436893475
 GameObject:
   m_ObjectHideFlags: 0

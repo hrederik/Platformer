@@ -14,7 +14,7 @@ namespace CodeBase.Game
             _player.TreasureCollected += Win;
         }
 
-        private void Start()
+        private void Awake()
         {
             _player.Initialize(_heroPreset.Prefab);
         }
