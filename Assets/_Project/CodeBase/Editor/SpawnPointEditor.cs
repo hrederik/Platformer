@@ -11,7 +11,7 @@ namespace _Project.CodeBase.Editor
         public static void RenderGizmo(SpawnPoint point, GizmoType type)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(point.Transform.position, radius: 0.5f);
+            Gizmos.DrawSphere(point.Position, radius: 0.5f);
         }
     }
 }

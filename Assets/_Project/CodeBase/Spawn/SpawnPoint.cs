@@ -4,6 +4,8 @@ namespace CodeBase.Spawn
 {
     public class SpawnPoint : MonoBehaviour
     {
-        public Transform Transform;
+        [SerializeField] private Transform _transform;
+
+        public Vector3 Position => _transform.position;
     }
 }
