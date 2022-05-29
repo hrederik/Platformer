@@ -206,8 +206,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fda024a713524a469ecb29ea119068b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallDelay: 2
-  _animator: {fileID: 354013213969264472}
+  _delay: 1
+  _duration: 1
+  _acceleration: 14
+  _topPosition: {x: 0, y: 5, z: 0}
+  _bottomY: 0
+  _rock: {fileID: 354013213969264478}
+  _trailRenderer: {fileID: 354013213969264479}
 --- !u!1 &354013213303055724
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +255,6 @@ GameObject:
   - component: {fileID: 354013213969264475}
   - component: {fileID: 354013213969264474}
   - component: {fileID: 354013213969264473}
-  - component: {fileID: 354013213969264472}
   - component: {fileID: 354013213969264479}
   - component: {fileID: 354013213969264468}
   m_Layer: 0
@@ -336,25 +340,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &354013213969264472
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354013213969264477}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 413d1f7b0fb12364e9a7ca82bfdd0ca1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!96 &354013213969264479
 TrailRenderer:
   serializedVersion: 2

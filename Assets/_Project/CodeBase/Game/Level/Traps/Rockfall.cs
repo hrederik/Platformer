@@ -1,25 +1,40 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
 using UnityEngine;
 
 namespace CodeBase.Game.Level.Traps
 {
     public class Rockfall : MonoBehaviour
     {
-        [SerializeField] private float _fallDelay;
-        [SerializeField] private Animator _animator;
+        [SerializeField] private float _delay;
+        [SerializeField] private float _duration;
+        [SerializeField] private Ease _acceleration;
+
+        [Space]
+        [SerializeField] private Vector3 _topPosition;
+        [SerializeField] private float _bottomY;
+        [SerializeField] private Transform _rock;
+        [SerializeField] private TrailRenderer _trailRenderer;
 
         private void Start()
         {
-            StartCoroutine(ActivateTrap());
-        }
+            var sequence = DOTween.Sequence();
 
-        private IEnumerator ActivateTrap()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(_fallDelay);
-                _animator.SetTrigger("Fall");
-            }
+            sequence
+                .AppendInterval(_delay)
+                .AppendCallback(
+                    () => _trailRenderer.enabled = true)
+                .Append(
+                    _rock
+                        .DOMoveY(_bottomY, _duration)
+                        .SetEase(_acceleration))
+                .AppendCallback(
+                    () =>
+                    {
+                        _trailRenderer.enabled = false;
+                        _rock.localPosition = _topPosition;
+                    })
+                .AppendInterval(_delay)
+                .SetLoops(-1);
         }
     }
 }
