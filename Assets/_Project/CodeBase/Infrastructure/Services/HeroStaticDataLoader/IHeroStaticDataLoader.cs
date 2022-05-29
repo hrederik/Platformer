@@ -1,6 +1,6 @@
 using CodeBase.StaticData;
 
-namespace CodeBase.Infrastructure.Services
+namespace CodeBase.Infrastructure.Services.HeroStaticDataLoader
 {
     public interface IHeroStaticDataLoader
     {

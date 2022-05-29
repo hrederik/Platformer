@@ -1,6 +1,7 @@
 using CodeBase.Game.Hero.Animator;
 using CodeBase.Game.Level.Platforms;
 using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.HeroStaticDataLoader;
 using CodeBase.Infrastructure.Services.Input;
 using DG.Tweening;
 using UnityEngine;

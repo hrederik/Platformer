@@ -1,4 +1,5 @@
 ﻿using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.HeroStaticDataLoader;
 using CodeBase.Menu.MainMenu;
 using CodeBase.StaticData;
 using UnityEngine;

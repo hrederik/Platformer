@@ -2,6 +2,7 @@ using CodeBase.Game.Hero;
 using CodeBase.Game.Hero.Animator;
 using CodeBase.Game.Hero.Health;
 using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.HeroStaticDataLoader;
 using CodeBase.Spawn;
 using UnityEngine;
 using Zenject;
