@@ -1,4 +1,5 @@
 ﻿using System;
+using CodeBase.StaticData;
 using UnityEngine;
 
 namespace CodeBase.Game.Player
@@ -12,12 +13,12 @@ namespace CodeBase.Game.Player
         
         public event Action Died;
 
-        public void Initialize(PlayerPrefab playerPrefab)
+        public void Initialize(HeroStaticData heroStaticData)
         {
-            PlayerPrefab player = Instantiate(playerPrefab, transform);
+            Instantiate(heroStaticData.Prefab, transform);
 
-            _heroAnimator.Initialize(player.Animator);
-            _heroMove.Initialize(player.Speed, _level);
+            _heroAnimator.Initialize(heroStaticData.Animator);
+            _heroMove.Initialize(heroStaticData.Speed, _level);
         }
 
         public void Kill()

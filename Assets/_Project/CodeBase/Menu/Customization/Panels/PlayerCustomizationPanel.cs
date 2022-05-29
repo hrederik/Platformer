@@ -1,13 +1,14 @@
 ﻿using CodeBase.Game.Player;
 using CodeBase.Menu.Customization.Items;
 using CodeBase.Menu.MainMenu;
+using CodeBase.StaticData;
 using UnityEngine;
 
 namespace CodeBase.Menu.Customization.Panels
 {
     public class PlayerCustomizationPanel : OpenablePanel
     {
-        [SerializeField] private HeroPreset _heroPreset;
+        [SerializeField] private HeroStaticData _heroStaticData;
         [SerializeField] private PlayerCustomizationItem[] _playerCustomizationItems;
         [SerializeField] private ItemScenePresenter _itemScenePresenterPrefab;
         [SerializeField] private RectTransform _container;
@@ -27,9 +28,9 @@ namespace CodeBase.Menu.Customization.Panels
             }
         }
 
-        public void Choose(PlayerPrefab playerPrefab)
+        public void Choose(HeroStaticData heroStaticData)
         {
-            _heroPreset.Prefab = playerPrefab;
+            _heroStaticData = heroStaticData;
         }
     }
 }
