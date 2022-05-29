@@ -1,7 +1,7 @@
 using CodeBase.Game.Hero;
 using CodeBase.Game.Hero.Animator;
 using CodeBase.Game.Hero.Health;
-using CodeBase.Infrastructure.Services.HeroDataProvider;
+using CodeBase.Infrastructure.Services;
 using CodeBase.Spawn;
 using UnityEngine;
 using Zenject;
@@ -30,9 +30,9 @@ namespace CodeBase.Infrastructure.Installers
 
         private GameObject SpawnHeroSample()
         {
-            var staticData = Container.Resolve<IStaticDataService>();
+            var staticData = Container.Resolve<IHeroStaticDataLoader>();
             var instance = Container.InstantiatePrefab(
-                staticData.HeroData.Prefab,
+                staticData.Chosen.Prefab,
                 _spawnPoint.Position,
                 _spawnPoint.Rotation, 
                 null);

@@ -1,6 +1,6 @@
 using CodeBase.Game.Hero.Animator;
 using CodeBase.Game.Level.Platforms;
-using CodeBase.Infrastructure.Services.HeroDataProvider;
+using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.Input;
 using DG.Tweening;
 using UnityEngine;
@@ -22,12 +22,12 @@ namespace CodeBase.Game.Hero
         public void Construct(
             IInputService inputService,
             IPlatformsIterator platformsIterator,
-            IStaticDataService staticDataService,
+            IHeroStaticDataLoader heroStaticDataLoader,
             IHeroAnimator heroAnimator)
         {
             _inputService = inputService;
             _platformsIterator = platformsIterator;
-            _speed = staticDataService.HeroData.Speed;
+            _speed = heroStaticDataLoader.Chosen.Speed;
             _heroAnimator = heroAnimator;
         }
 

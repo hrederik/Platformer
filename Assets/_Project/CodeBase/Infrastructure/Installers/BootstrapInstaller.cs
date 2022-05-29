@@ -1,5 +1,4 @@
 using CodeBase.Infrastructure.Services;
-using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Infrastructure.Services.Input;
 using UnityEngine;
 using Zenject;
@@ -14,7 +13,6 @@ namespace CodeBase.Infrastructure.Installers
         {
             BindInputService();
             BindHeroStaticDataLoader();
-            BindHeroDataProvider();
         }
 
         private void BindInputService()
@@ -30,14 +28,6 @@ namespace CodeBase.Infrastructure.Installers
             Container
                 .Bind<IHeroStaticDataLoader>()
                 .To<HeroStaticDataLoader>()
-                .AsSingle();
-        }
-
-        private void BindHeroDataProvider()
-        { 
-            Container
-                .Bind<IStaticDataService>()
-                .To<DefaultStaticDataService>()
                 .AsSingle();
         }
     }

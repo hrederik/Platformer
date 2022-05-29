@@ -1,5 +1,4 @@
 ﻿using CodeBase.Infrastructure.Services;
-using CodeBase.Infrastructure.Services.HeroDataProvider;
 using CodeBase.Menu.MainMenu;
 using CodeBase.StaticData;
 using UnityEngine;
@@ -12,13 +11,11 @@ namespace CodeBase.Menu.Customization.Panels
         [SerializeField] private ItemScenePresenter _itemScenePresenterPrefab;
         [SerializeField] private RectTransform _container;
         private ItemScenePresenter[] _itemScenePresenters;
-        private IStaticDataService _staticDataService;
         private IHeroStaticDataLoader _heroStaticDataLoader;
 
         [Inject]
-        public void Construct(IStaticDataService staticDataService, IHeroStaticDataLoader heroStaticDataLoader)
+        public void Construct(IHeroStaticDataLoader heroStaticDataLoader)
         {
-            _staticDataService = staticDataService;
             _heroStaticDataLoader = heroStaticDataLoader;
         }
         
@@ -27,9 +24,6 @@ namespace CodeBase.Menu.Customization.Panels
             var heroStaticData = _heroStaticDataLoader.LoadAll();
             _itemScenePresenters = new ItemScenePresenter[heroStaticData.Length];
 
-            // TODO: Temp
-            _staticDataService.HeroData = heroStaticData[0];
-            
             for (int i = 0; i < heroStaticData.Length; i++)
             {
                 int z = i;
@@ -42,7 +36,7 @@ namespace CodeBase.Menu.Customization.Panels
 
         private void Choose(HeroStaticData heroStaticData)
         {
-            _staticDataService.HeroData = heroStaticData;
+            _heroStaticDataLoader.Chosen = heroStaticData;
         }
     }
 }
